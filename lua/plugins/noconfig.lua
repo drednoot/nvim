@@ -1,6 +1,5 @@
 return {
 	'rstacruz/vim-closer',
-	'rstacruz/vim-closer',
 	'tpope/vim-endwise',
 	'tpope/vim-surround',
 	'norcalli/nvim-colorizer.lua',
