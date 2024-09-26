@@ -11,7 +11,6 @@ return {
 
 	config = function()
 		require('lspconfig').clangd.setup({})
-		require('lspconfig').rust_analyzer.setup({})
 
 		local cmp = require('cmp')
 		cmp.setup({
@@ -33,6 +32,12 @@ return {
 			preselect = 'none',
 		})
 	end,
+
+	keys = {
+		{
+			'<c-a>',
+			'<cmd>ClangdSwitchSourceHeader<cr>',
+		},
 
 		{
 			'<localleader>gd',
