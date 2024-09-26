@@ -7,6 +7,8 @@ return {
 		'hrsh7th/cmp-nvim-lsp-signature-help'
 	},
 
+	lazy = false,
+
 	config = function()
 		require('lspconfig').clangd.setup({})
 		require('lspconfig').rust_analyzer.setup({})
@@ -31,4 +33,46 @@ return {
 			preselect = 'none',
 		})
 	end,
+
+		{
+			'<localleader>gd',
+			function()
+				vim.lsp.buf.definition()
+			end,
+			noremap = true,
+			silent = true,
+		},
+		{
+			'<localleader>gr',
+			function()
+				vim.lsp.buf.references()
+			end,
+			noremap = true,
+			silent = true,
+		},
+		{
+			'<localleader>gi',
+			function()
+				vim.lsp.buf.implementation()
+			end,
+			noremap = true,
+			silent = true,
+		},
+		{
+			'<localleader>ar',
+			function()
+				vim.lsp.buf.rename()
+			end,
+			noremap = true,
+			silent = true,
+		},
+		{
+			'<localleader>aa',
+			function()
+				vim.lsp.buf.code_action()
+			end,
+			noremap = true,
+			silent = true,
+		},
+	},
 }

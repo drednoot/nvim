@@ -66,7 +66,7 @@ return {
 			silent = true,
 		},
 		{
-			'F6',
+			'<F6>',
 			function()
 				require('dap').run_last()
 			end,
