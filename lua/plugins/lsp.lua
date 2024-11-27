@@ -4,7 +4,7 @@ return {
 	dependencies = {
 		'hrsh7th/cmp-nvim-lsp',
 		'hrsh7th/nvim-cmp',
-		'hrsh7th/cmp-nvim-lsp-signature-help'
+		'hrsh7th/cmp-nvim-lsp-signature-help',
 	},
 
 	lazy = false,
@@ -63,6 +63,15 @@ return {
 			noremap = true,
 			silent = true,
 		},
+		{
+			'<localleader>gs',
+			function()
+				vim.lsp.buf.signature_help()
+			end,
+			noremap = true,
+			silent = true,
+		},
+
 		{
 			'<localleader>ar',
 			function()

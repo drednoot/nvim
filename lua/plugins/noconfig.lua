@@ -8,6 +8,8 @@ return {
 	'tikhomirov/vim-glsl',
 	'mcauley-penney/visual-whitespace.nvim',
 	'wellle/targets.vim',
+	'tommcdo/vim-exchange',
+	'mg979/vim-visual-multi',
 
 	{
 		'tpope/vim-commentary',
@@ -23,5 +25,10 @@ return {
 		config = function()
 			vim.g.qs_highlight_on_keys = {'f', 'F', 't', 'T'}
 		end,
+	},
+
+	{
+		'artoj/qmake-syntax-vim',
+		ft = { "qmake" },
 	},
 }

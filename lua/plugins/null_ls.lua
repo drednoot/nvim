@@ -1,7 +1,8 @@
-
 return {
 	'jose-elias-alvarez/null-ls.nvim',
 	name = 'null-ls',
+
+	lazy = false,
 
 	config = function()
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

@@ -11,21 +11,40 @@ return {
 			type = 'server',
 			port = "${port}",
 			executable = {
-				command = '/home/ns/Applications/codelldb/extension/adapter/codelldb',
+				command = 'C:\\codelldb\\extension\\adapter\\codelldb.exe',
 				args = {"--port", "${port}"},
+
+				detached = false,
+			}
+		}
+		local dap = require('dap')
+		dap.adapters.cppdbg = {
+			id = 'cppdbg',
+			type = 'executable',
+			command = 'C:\\codelldb\\extension\\debugAdapters\\bin\\OpenDebugAD7.exe',
+
+			options = {
+				detached = false
 			}
 		}
 
 		dap.configurations.c = {
 			{
 				name = "Launch",
-				type = "codelldb",
+				type = "cppdbg",
 				request = "launch",
 				program = function()
 					return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
 				end,
 				cwd = "${workspaceFolder}",
 				stopOnEntry = false,
+				setupCommands = {  
+					{ 
+						text = '-enable-pretty-printing',
+						description =  'enable pretty printing',
+						ignoreFailures = false 
+					},
+				},
 			},
 		}
 		dap.configurations.cpp = dap.configurations.c;
@@ -108,7 +127,7 @@ return {
 		},
 
 		{
-			'<leader>du',
+			'<localleader>du',
 			function()
 				require("dapui").toggle()
 			end,
