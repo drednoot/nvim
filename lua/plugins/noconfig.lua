@@ -8,8 +8,9 @@ return {
 	'tikhomirov/vim-glsl',
 	'mcauley-penney/visual-whitespace.nvim',
 	'wellle/targets.vim',
+	'airblade/vim-gitgutter',
+	'tpope/vim-fugitive',
 	'tommcdo/vim-exchange',
-	'mg979/vim-visual-multi',
 
 	{
 		'tpope/vim-commentary',

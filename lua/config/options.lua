@@ -22,11 +22,13 @@ vim.opt.signcolumn = "yes"
 vim.opt.backspace = "indent,eol,start"
 
 vim.opt.autoindent = true
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 0
+vim.opt.expandtab = true
 vim.opt.scrolloff = 5
 
 vim.cmd [[autocmd FileType c,cpp setlocal commentstring=//\ %s]]
+vim.cmd [[autocmd FileType ninja set tabstop=2 shiftwidth=2 expandtab]]
 
 vim.g.qs_highlight_on_keys = {'f', 'F', 't', 'T'}
