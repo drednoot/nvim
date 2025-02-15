@@ -1,13 +1,11 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
-	opts = {
+	opts = { ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "cpp", "rust", "markdown"},
 		highlight = { enable = true },
-		ensure_installed = { "cpp", "norg", "lua", "python" },
 	},
 
 	config = function(_, opts)
-		require("nvim-treesitter.install").compilers = { "zig" }
 		require("nvim-treesitter.configs").setup(opts)
 	end,
 }
