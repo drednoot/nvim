@@ -11,6 +11,8 @@ return {
 
 	config = function()
 		require('lspconfig').clangd.setup({})
+		require('lspconfig').rust_analyzer.setup({})
+		require('lspconfig').zls.setup({})
 
 		local cmp = require('cmp')
 		cmp.setup({
@@ -32,12 +34,6 @@ return {
 			preselect = 'none',
 		})
 	end,
-
-	keys = {
-		{
-			'<c-a>',
-			'<cmd>ClangdSwitchSourceHeader<cr>',
-		},
 
 		{
 			'<localleader>gd',
@@ -63,15 +59,6 @@ return {
 			noremap = true,
 			silent = true,
 		},
-		{
-			'<localleader>gs',
-			function()
-				vim.lsp.buf.signature_help()
-			end,
-			noremap = true,
-			silent = true,
-		},
-
 		{
 			'<localleader>ar',
 			function()
