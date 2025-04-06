@@ -11,7 +11,7 @@ return {
 			type = 'server',
 			port = "${port}",
 			executable = {
-				command = 'C:\\codelldb\\extension\\adapter\\codelldb.exe',
+				command = '/home/ns/Applications/codelldb/extension/adapter/codelldb',
 				args = {"--port", "${port}"},
 
 				detached = false,
@@ -31,10 +31,26 @@ return {
 		dap.configurations.c = {
 			{
 				name = "Launch",
-				type = "cppdbg",
+				type = "codelldb",
 				request = "launch",
 				program = function()
-					return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+          local is_overwrite = require('dap').is_overwrite
+
+          local configpath = vim.fn.getcwd() .. '/nvim-dap.cfg'
+          local file, error, code = io.open(configpath, 'r')
+
+          local executable = nil
+
+          if file == nil or is_overwrite then
+            file = assert(io.open(configpath, 'w'))
+            executable = vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+            file:write(executable)
+          else
+            executable = file:read("*all")
+          end
+          file:close()
+
+					return executable
 				end,
 				cwd = "${workspaceFolder}",
 				stopOnEntry = false,
@@ -49,6 +65,7 @@ return {
 		}
 		dap.configurations.cpp = dap.configurations.c;
 		dap.configurations.rust = dap.configurations.c;
+    dap.is_overwrite = false
 
 		local dapui = require("dapui")
 		dapui.setup()
@@ -79,7 +96,9 @@ return {
 		{
 			'<F5>',
 			function()
-				require("dap").continue()
+        local dap = require('dap')
+        dap.is_overwrite = false
+				dap.continue()
 			end,
 			noremap = true,
 			silent = true,
@@ -87,7 +106,9 @@ return {
 		{
 			'<F6>',
 			function()
-				require('dap').run_last()
+        local dap = require('dap')
+        dap.is_overwrite = true
+				dap.continue()
 			end,
 			noremap = true,
 			silent = true,
