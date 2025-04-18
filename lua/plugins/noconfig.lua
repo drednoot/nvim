@@ -8,9 +8,9 @@ return {
 	'tikhomirov/vim-glsl',
 	'mcauley-penney/visual-whitespace.nvim',
 	'wellle/targets.vim',
-	'airblade/vim-gitgutter',
 	'tpope/vim-fugitive',
 	'tommcdo/vim-exchange',
+  'airblade/vim-rooter',
 
 	{
 		'tpope/vim-commentary',
