@@ -10,12 +10,14 @@ return {
 	lazy = false,
 
 	config = function()
+    vim.diagnostic.config({ virtual_text = true })
+
 		require('lspconfig').clangd.setup({})
 		require('lspconfig').rust_analyzer.setup({})
 		require('lspconfig').zls.setup({})
+		require('lspconfig').omnisharp.setup({ cmd = {"/usr/bin/omnisharp"} })
 
-		local cmp = require('cmp')
-		cmp.setup({
+		local cmp = require('cmp') cmp.setup({
 			sources = {
 				{name = 'nvim_lsp'},
 				{name = 'nvim_lsp_signature_help'},
@@ -36,6 +38,12 @@ return {
 	end,
 
 	keys = {
+    {
+			'<c-a>',
+			'<cmd>ClangdSwitchSourceHeader<cr>',
+      noremap = true,
+      silent = true,
+		},
 		{
 			'<localleader>gd',
 			function()
