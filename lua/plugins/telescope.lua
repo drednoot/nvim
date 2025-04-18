@@ -4,9 +4,17 @@ return {
 
 	keys = {
 		{
-			"<c-f>",
+			"<localleader>ff",
 			function()
 				require('telescope.builtin').find_files()
+			end,
+			noremap = true,
+			silent = true,
+		},
+		{
+			"<localleader>fl",
+			function()
+				require('telescope.builtin').live_grep()
 			end,
 			noremap = true,
 			silent = true,
