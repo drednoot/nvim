@@ -20,4 +20,4 @@ vim.keymap.set('n', '<C-->', '3<C-w>-')
 vim.keymap.set('n', '<c-z>', '<c-a>')
 
 -- ctrl backspace
-vim.keymap.set('i', '<c-h>', '<c-w>')
+vim.keymap.set('i', '<c-bs>', '<c-w>')

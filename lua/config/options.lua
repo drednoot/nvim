@@ -30,5 +30,6 @@ vim.opt.scrolloff = 5
 
 vim.cmd [[autocmd FileType c,cpp setlocal commentstring=//\ %s]]
 vim.cmd [[autocmd FileType ninja set tabstop=2 shiftwidth=2 expandtab]]
+vim.cmd [[autocmd FileType cs set tabstop=4 shiftwidth=4 expandtab]]
 
 vim.g.qs_highlight_on_keys = {'f', 'F', 't', 'T'}
