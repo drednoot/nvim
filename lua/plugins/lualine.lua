@@ -1,6 +1,7 @@
 return {
 	'nvim-lualine/lualine.nvim',
 	name = 'lualine',
+  enabled = false,
 	
 	opts = {
 		sections = {

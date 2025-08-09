@@ -17,6 +17,7 @@ vim.opt.cursorline = true
 vim.opt.ff = 'unix'
 vim.opt.ffs = 'unix,dos'
 vim.opt.autoread = true
+vim.opt.laststatus = 0
 
 vim.opt.signcolumn = "yes"
 vim.opt.backspace = "indent,eol,start"
